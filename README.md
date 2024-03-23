@@ -1,7 +1,7 @@
 # 盘古之白
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-blue.svg)](https://github.com/yarin-zhang/PanguWeb)
+[![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.0-blue.svg)](https://github.com/yarin-zhang/PanguWeb)
 [![PWA: Supported](https://img.shields.io/badge/PWA-Supported-green.svg)](https://github.com/yarin-zhang/PanguWeb)
 [![Language: JavaScript](https://img.shields.io/badge/Language-JavaScript-orange.svg)](https://github.com/yarin-zhang/PanguWeb)
 
