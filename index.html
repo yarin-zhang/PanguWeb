@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盘古之白</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="manifest" href="./manifest.json">
+    <link rel="icon" type="image/x-icon" href="./icons/favicon.ico">
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 pangu.js -->
+    <script src="./pangu.min.js"></script>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="container mx-auto px-4 py-5">
+            <!-- 标题和介绍 -->
+            <div class="text-center mb-6">
+                <h1 class="text-3xl font-bold mb-4">盘古之白</h1>
+                <p class="text-gray-600">自动在中文汉字和半角的英文、数字、符号之间插入空白。
+                </p>
+            </div>
+            <div class="flex flex-col md:flex-row">
+                <!-- 输入框 -->
+                <textarea id="input"
+                    class="textarea flex-1 mb-4 md:mb-0 md:mr-4 p-4 border-2 border-gray-300 focus:border-blue-500 focus:outline-none resize-none"
+                    placeholder="在这里输入..."></textarea>
+                <!-- 展示区域 -->
+                <div id="output" class="flex-1 p-4 border-2 border-gray-300"></div>
+            </div>
+        </div>
+        <div id="copyright">
+            <a href="https://github.com/yarin-zhang/PanguWeb" target="_blank"><img
+                    src="https://img.shields.io/badge/GitHub-PanguWeb-blue?logo=GitHub&logoColor=white"
+                    alt="GitHub"></a>
+            by <a href="https://github.com/yarin-zhang">YarinZ</a> | <a href="https://utgd.net">#UNTAG</a>
+        </div>
+    </div>
+
+    <script>
+        // 获取输入框和展示区域的元素
+        const input = document.getElementById('input');
+        const output = document.getElementById('output');
+
+        // 监听输入框的内容变化
+        input.addEventListener('input', function () {
+            // 使用 pangu.js 处理输入的内容
+            const processedText = pangu.spacing(input.value);
+            // 将处理后的内容展示在右侧
+            output.innerText = processedText;
+        });
+    </script>
+</body>
+
+</html>
