@@ -12,35 +12,62 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- 引入 pangu.js -->
     <script src="./pangu.min.js"></script>
-    <style>
-    </style>
 </head>
 
 <body>
-    <div id="app">
+    <div id="app" class="relative">
         <div class="container mx-auto px-4 py-5">
             <!-- 标题和介绍 -->
             <div class="text-center mb-6">
                 <h1 class="text-3xl font-bold mb-4">盘古之白</h1>
-                <p class="text-gray-600">自动在中文汉字和半角的英文、数字、符号之间插入空白。
-                </p>
+                <p class="text-gray-600">自动在中文汉字和半角的英文、数字、符号之间插入空白。</p>
             </div>
-            <div class="flex flex-col md:flex-row">
+            <div class="flex flex-col md:flex-row relative">
                 <!-- 输入框 -->
-                <textarea id="input"
-                    class="textarea flex-1 mb-4 md:mb-0 md:mr-4 p-4 border-2 border-gray-300 focus:border-blue-500 focus:outline-none resize-none"
-                    placeholder="在这里输入..."></textarea>
+                <div class="relative flex-1 mb-4 md:mb-0 md:mr-4">
+                    <textarea id="input"
+                        class="textarea w-full p-4 border-2 border-gray-300 focus:border-blue-500 focus:outline-none resize-none overflow-y-auto"
+                        placeholder="在这里输入..." style="height: 75vh;"></textarea>
+                    <!-- 粘贴图标 -->
+                    <div class="absolute bottom-4 left-2 cursor-pointer" onclick="pasteText()">
+                        <!-- SVG 粘贴图标代码 -->
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 0 24 24" class="h-6 w-6 fill-current text-gray-600">
+                            <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2">
+                                </path>
+                                <rect x="9" y="3" width="6" height="4" rx="2"></rect>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
                 <!-- 展示区域 -->
-                <div id="output" class="flex-1 p-4 border-2 border-gray-300"></div>
+                <div class="relative flex-1" style="height: 75vh;">
+                    <div id="output" class="w-full h-full p-4 border-2 border-gray-300 overflow-y-auto"></div>
+                    <!-- 复制图标 -->
+                    <div class="absolute bottom-2 right-2 cursor-pointer" onclick="copyText()">
+                        <!-- SVG 复制图标代码 -->
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 0 24 24" class="h-6 w-6 fill-current text-gray-600">
+                            <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect x="8" y="8" width="12" height="12" rx="2"></rect>
+                                <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"></path>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
             </div>
         </div>
         <div id="copyright">
             <a href="https://github.com/yarin-zhang/PanguWeb" target="_blank"><img
                     src="https://img.shields.io/badge/GitHub-PanguWeb-blue?logo=GitHub&logoColor=white"
-                    alt="GitHub"></a>
-            by <a href="https://github.com/yarin-zhang">YarinZ</a> | <a href="https://utgd.net">#UNTAG</a>
+                    alt="GitHub"></a> by <a href="https://github.com/yarin-zhang">YarinZ</a> | <a href="https://utgd.net">#UNTAG</a>
         </div>
+
     </div>
+
 
     <script>
         // 获取输入框和展示区域的元素
@@ -54,6 +81,19 @@
             // 将处理后的内容展示在右侧
             output.innerText = processedText;
         });
+
+        function copyText() {
+            navigator.clipboard.writeText(output.innerText).then(() => {
+                alert('已复制到剪贴板');
+            });
+        }
+
+        function pasteText() {
+            navigator.clipboard.readText().then(text => {
+                input.value = text;
+                input.dispatchEvent(new Event('input'));
+            });
+        }
     </script>
 </body>
 

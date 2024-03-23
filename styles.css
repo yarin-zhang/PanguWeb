@@ -22,10 +22,14 @@ body {
 
 
 #copyright {
+    display: block;
     position: fixed;
+    gap: 4px;
     right: 10px;
     bottom: 10px;
     font-size: 10px;
+    display: flex; /* 添加这一行 */
+    align-items: center; /* 添加这一行 */
 }
 
 #copyright a {
