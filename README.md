@@ -13,14 +13,14 @@
 
 [🔗 盘古之白 Demo](https://lab.utgd.net/PanguWeb/)
 
-## 引用
+## Credits
 
 - [pangu.js](https://github.com/vinta/pangu.js)
 
-## License (许可证)
+## License
 
 MIT
 
-## Author (作者)
+## Author
 
 Yarin Zhang
