@@ -2,7 +2,7 @@
     "name": "Pangu",
     "short_name": "Pangu",
     "description": "A small webpage that adds spaces between Chinese and English",
-    "start_url": "https://lab.utgd.net/Pangu/",
+    "start_url": "https://lab.utgd.net/PanguWeb/",
     "display": "standalone",
     "background_color": "#f5f5f5",
     "theme_color": "#fdfd96",
